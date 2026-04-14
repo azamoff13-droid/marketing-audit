@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing & Moliyaviy Audit</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                Audit Pro
+            </div>
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar"></div>
+                <div class="progress-text" id="progressText">1 / 9</div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Wizard Section -->
+            <section id="wizardSection" class="section active fade-in">
+                <div class="question-container">
+                    <h1 id="questionTitle" class="question-title">Siz biznes egasimisiz?</h1>
+                    <div id="optionsContainer" class="options-container">
+                        <!-- Options injected here -->
+                    </div>
+                </div>
+                <div class="wizard-footer">
+                    <button id="prevBtn" class="btn btn-secondary fade-out">Orqaga</button>
+                    <!-- Next button will only show up when valid input is given -->
+                </div>
+            </section>
+
+            <!-- Loading Interstitial -->
+            <section id="loadingSection" class="section hidden">
+                <div class="loader-container">
+                    <div class="spinner"></div>
+                    <h2>Ma'lumotlar tahlil qilinmoqda...</h2>
+                    <p class="fade-text" id="loadingText">Funnel hisoblanyapti...</p>
+                </div>
+            </section>
+
+            <!-- Report Dashboard Section -->
+            <section id="reportSection" class="section hidden">
+                <div class="dashboard-header">
+                    <h1>📊 Audit Natijalari!</h1>
+                    <p>Sizning byudjetingiz va sotuv tizimingizning tahlili tayyor.</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    
+                    <!-- Business State Warnings -->
+                    <div class="card glass-card danger-glow" id="warningsCard">
+                        <h3>⚠️ Tizim Xavflari & Jarimalar</h3>
+                        <ul id="warningsList" class="info-list danger">
+                            <!-- Warnings injected here -->
+                        </ul>
+                    </div>
+
+                    <!-- Financial Target -->
+                    <div class="card glass-card success-glow" id="financeCard">
+                        <h3>🎯 Moliyaviy Maqsad</h3>
+                        <div class="stat-group">
+                            <div class="stat">
+                                <span class="stat-label">O'rtacha chek</span>
+                                <span class="stat-value" id="resAvgCheck">$0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Daromad maqsadi</span>
+                                <span class="stat-value highlight" id="resTarget">$0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Kerakli mijozlar</span>
+                                <span class="stat-value" id="resClients">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Funnel Calculations -->
+                    <div class="card glass-card blue-glow" id="funnelCard">
+                        <h3>📈 Funnel Hisob-kitobi</h3>
+                        <div class="stat-group vertical">
+                            <div class="stat-row">
+                                <span>Sotuv Konversiyasi:</span>
+                                <strong id="resConv">0%</strong>
+                            </div>
+                            <div class="stat-row highlight-bg">
+                                <span>Kerakli Lidlar Soni:</span>
+                                <strong class="big-text" id="resLeads">0</strong>
+                            </div>
+                        </div>
+                        <p class="formula-text">Formula: Daromad / O'rtacha chek / Konversiya</p>
+                    </div>
+
+                    <!-- Budget Recommendation -->
+                    <div class="card glass-card purple-glow" id="budgetCard">
+                        <h3>💸 Reklama Byudjeti</h3>
+                        <div class="platform-badge" id="resPlatform">Platforma: ...</div>
+                        
+                        <div class="stat-group no-border">
+                            <div class="stat">
+                                <span class="stat-label">Tahminiy Lid narxi</span>
+                                <span class="stat-value text-sm" id="resCpl">$0.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="budget-results">
+                            <div class="budget-item minimal">
+                                <span class="label">Minimal Byudjet</span>
+                                <strong class="sum" id="resMinBudget">$0</strong>
+                            </div>
+                            <div class="budget-item optimal">
+                                <span class="label">Optimal Byudjet</span>
+                                <strong class="sum" id="resOptBudget">$0</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="penalty-alert" id="penaltyAlert">
+                            Sizda tizim bo'lmagani uchun real byudjet <strong>X%</strong> ga qimmatroq tushishi mumkin.
+                        </div>
+                    </div>
+
+                    <!-- Recommendations List -->
+                    <div class="card glass-card info-glow span-2" id="recommendationsCard">
+                        <h3>✅ Tavsiyalar</h3>
+                        <ol id="recommendationsList" class="recommendation-list">
+                            <!-- Recommendations injected here -->
+                        </ol>
+                    </div>
+
+                </div>
+
+                <div class="report-footer">
+                    <button class="btn btn-primary btn-large" onclick="location.reload()">Qaytadan test qilish</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    
+    <!-- External Icon library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="app.js"></script>
+</body>
+</html>
